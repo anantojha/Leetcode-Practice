@@ -1,0 +1,32 @@
+/*
+ *  Given a fixed length array arr of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
+ *  Note that elements beyond the length of the original array are not written.
+ *  Do the above modifications to the input array in place, do not return anything from your function.
+ *  Example:
+ *            Input: [1,0,2,3,0,4,5,0]
+ *            Output: null
+*/
+
+
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) {
+        int k = arr.size();int v = arr.size();
+        queue<int> Q;
+        while(!arr.empty()){
+            Q.push(arr.front());
+            arr.erase(arr.begin());
+        }
+
+        while(k >= 0){
+            arr.push_back(Q.front());
+            if(Q.front() == 0){
+                arr.push_back(0); k--;
+            }
+            Q.pop();
+            k--;
+        }
+       
+       arr.erase(arr.begin() + v , arr.end());
+    }
+};
