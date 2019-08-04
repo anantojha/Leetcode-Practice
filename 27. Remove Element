@@ -1,0 +1,22 @@
+/*
+ *  Given an array nums and a value val, remove all instances of that value in-place and return the new length.
+ *  The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+ *  Example:
+ *                Given nums = [3,2,2,3], val = 3,
+ *                Your function should return length = 2, with the first two elements of nums being 2.
+*/
+
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        vector<int> n;
+        for(int i=0; i<nums.size(); i++){
+            if(nums.at(i) != val){
+                n.push_back(nums.at(i));
+            }
+        }
+        nums = n;
+        return n.size();
+    }
+};
