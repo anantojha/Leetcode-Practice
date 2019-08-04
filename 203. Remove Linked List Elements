@@ -1,0 +1,36 @@
+/*
+ *  Remove all elements from a linked list of integers that have value val.
+ *  Explain:
+ *                Input:  1->2->6->3->4->5->6, val = 6
+ *                Output: 1->2->3->4->5
+*/
+
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        
+        if(head == NULL)    return NULL;
+        
+        while(head != NULL){
+            if(head->val == val){
+                head = head->next;
+            }
+            else
+                break;
+        }
+        
+        ListNode* curr = head;
+        if(curr == NULL)    return NULL;
+        
+        while(curr->next != NULL){
+            if(curr->next->val == val){
+                ListNode* x = curr->next;
+                curr->next = x->next;
+            }
+            else
+                curr = curr->next;
+        }
+        return head;
+    }
+};
